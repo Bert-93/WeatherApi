@@ -1,6 +1,14 @@
 using Microsoft.OpenApi.Models;
+using DotNetEnv;
+
+// Carga variables de entorno desde el archivo .env
+//DotNetEnv.Env.Load();
+DotNetEnv.Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
+
+var ApiKey = Environment.GetEnvironmentVariable("API_KEY");
+var BaseUrl = Environment.GetEnvironmentVariable("BASE_URL");
 
 // Services
 builder.Services.AddControllers();

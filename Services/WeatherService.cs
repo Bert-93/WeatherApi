@@ -16,8 +16,8 @@ public class  WeatherService
     public WeatherService(HttpClient httpClient, IConfiguration configuration)
     {
         _httpClient = httpClient;
-        _apiKey = configuration["OpenWeather:ApiKey"];
-        _baseUrl = configuration["OpenWeather:BaseUrl"];
+        _apiKey = Environment.GetEnvironmentVariable("API_KEY");
+        _baseUrl = Environment.GetEnvironmentVariable("BASE_URL");
     }
 
     public async Task<WeatherReponse> GetWeatherAsync (string city)
